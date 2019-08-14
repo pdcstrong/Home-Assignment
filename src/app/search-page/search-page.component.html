@@ -1,0 +1,36 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Search Page</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Search books</mat-label>
+                <input #bookName matInput placeholder="book name">
+
+            </mat-form-field>
+            <span class="spacer"> </span>
+            <button mat-raised-button (click)="searchBooks(bookName.value)" color="primary">Search</button>
+
+            <mat-card-actions>
+                <mat-list>
+                    <h3 mat-subheader>Search Results :</h3>
+                    <mat-list-item *ngFor="let book of books.items"
+                        [routerLink]="['/book', book.volumeInfo.industryIdentifiers[0].identifier]">
+                        <mat-icon mat-list-icon>book</mat-icon>
+                        <h4 mat-line>{{book.volumeInfo.title}}</h4>
+                        <p mat-line> {{book.volumeInfo.subtitle }} </p>
+                        <!-- <p *ngIf="book.volumeInfo.imageLinks">
+                            <img src={{book.volumeInfo.imageLinks.smallThumbnail}} />
+                        </p> -->
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+
+                </mat-list>
+            </mat-card-actions>
+
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+
+</mat-card>

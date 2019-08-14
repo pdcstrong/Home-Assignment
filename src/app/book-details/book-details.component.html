@@ -1,0 +1,18 @@
+<mat-card class="example-card"> 
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title> {{book.items[0].volumeInfo.title}}</mat-card-title>
+        <mat-card-subtitle>{{book.items[0].volumeInfo.subtitle }}</mat-card-subtitle>
+    </mat-card-header>
+   
+    <img mat-card-image id="img_size" src={{book.items[0].volumeInfo.imageLinks.smallThumbnail}}>
+    <mat-card-content>
+        <p>
+                {{book.items[0].volumeInfo.description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>
